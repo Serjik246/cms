@@ -1,11 +1,11 @@
 'use strict'
 
-const modalInputFieldName = document.querySelector('.modal__label_name .modal__input');
-const modalInputDescription = document.querySelector('.modal__label_description .modal__input');
-const modalInputDiscountCheckbox = document.querySelector('.modal__checkbox-wrapper .modal__checkbox');
-const modalInputDiscountText = document.querySelector('.modal__checkbox-wrapper .modal__input_discount');
+const modalTitle = document.querySelector('.modal_top .modal__title');
+const modalForm = document.querySelector('.modal__form');
+const modalDiscountCheckbox = document.querySelector('.modal__checkbox-wrapper .modal__checkbox');
+const modalDiscountInputText = document.querySelector('.modal__checkbox-wrapper .modal__input_discount');
 
-console.log(modalInputFieldName);
-console.log(modalInputDescription);
-console.log(modalInputDiscountCheckbox);
-console.log(modalInputDiscountText);
+console.log(modalTitle);
+console.log(modalForm);
+console.log(modalDiscountCheckbox);
+console.log(modalDiscountInputText);

@@ -140,3 +140,22 @@ const renderGoods = (arr) => {
     });
 }
 renderGoods(goods);
+
+// ДЗ
+
+const addGood = document.querySelector('.panel__add-goods');
+const overlayWindow = document.querySelector('.overlay__modal');
+const buttonModalClose = document.querySelector('.modal__close');
+
+addGood.addEventListener ('click', () => {
+  statusOverlay.classList.add('active');
+});
+
+overlayWindow.addEventListener('click', event => {
+  event.stopImmediatePropagation();
+});
+
+const closeOverlay = () => statusOverlay.classList.remove('active');
+
+buttonModalClose.addEventListener('click', closeOverlay);
+statusOverlay.addEventListener('click', closeOverlay);

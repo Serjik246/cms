@@ -1,11 +1,18 @@
 'use strict'
 
-// 1 задание
+const modalTitle = document.querySelector('.modal_top .modal__title');
+const modalForm = document.querySelector('.modal__form');
+const modalDiscountCheckbox = document.querySelector('.modal__checkbox-wrapper .modal__checkbox');
+const modalDiscountInputText = document.querySelector('.modal__checkbox-wrapper .modal__input_discount');
+
+console.log(modalTitle);
+console.log(modalForm);
+console.log(modalDiscountCheckbox);
+console.log(modalDiscountInputText);
+
 const statusOverlay = document.querySelector('.overlay');
 
 statusOverlay.classList.remove('active');
-
-// 2 задание
 
 const test_object = {
     id: 24601654816512,
@@ -67,9 +74,6 @@ const createRow = (obj) => {
     return table.appendChild(row)
 };
 createRow(test_object);
-
-
-//3 задание
 
 const goods = [
     {

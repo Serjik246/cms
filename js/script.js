@@ -13,7 +13,7 @@ console.log(modalDiscountInputText);
 const statusOverlay = document.querySelector('.overlay');
 
 statusOverlay.classList.remove('active');
-
+/*
 const test_object = {
     id: 24601654816512,
     title: 'Телевизор DEXP',
@@ -22,7 +22,7 @@ const test_object = {
     count: 15,
     price: 1000,
 };
-
+*/
 const createRow = (obj) => {
     const table = document.querySelector('.table__body');
     const row = document.createElement('tr');
@@ -73,7 +73,7 @@ const createRow = (obj) => {
 
     return table.appendChild(row)
 };
-createRow(test_object);
+//createRow(test_object);
 
 const goods = [
     {
@@ -141,21 +141,41 @@ const renderGoods = (arr) => {
 }
 renderGoods(goods);
 
-// ДЗ
-
 const addGood = document.querySelector('.panel__add-goods');
 const overlayWindow = document.querySelector('.overlay__modal');
 const buttonModalClose = document.querySelector('.modal__close');
+
 
 addGood.addEventListener ('click', () => {
   statusOverlay.classList.add('active');
 });
 
-overlayWindow.addEventListener('click', event => {
-  event.stopImmediatePropagation();
+statusOverlay.addEventListener('click', e => {
+  const target = e.target;
+  if (target === statusOverlay ||
+    target.closest('.modal__close')) {
+      statusOverlay.classList.remove('active');
+  };
 });
 
-const closeOverlay = () => statusOverlay.classList.remove('active');
+const tableBody = document.querySelector('.table__body');
 
-buttonModalClose.addEventListener('click', closeOverlay);
-statusOverlay.addEventListener('click', closeOverlay);
+const deleteFromBD = (id, arr) => {
+  for (let i = 0; i < arr.length; i++) {       
+    if(arr[i].id === id) {
+      arr.splice(i, 1);
+    };         
+  }   
+};
+
+tableBody.addEventListener('click', e => {
+  const target = e.target;
+  const goodId = Number(target.closest('tr').children[1].attributes[1].textContent);
+
+  if (target.closest('.table__btn_del')) {
+    target.closest('tr').remove();
+    deleteFromBD(goodId, goods);
+
+    console.log(goods)
+  };
+});

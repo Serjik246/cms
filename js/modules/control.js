@@ -1,17 +1,19 @@
 import {createRow} from './createElement.js';
 import {getStorage, setStorage, removeStorage} from './serviceStorage.js';
 import {renderGoods} from './render.js';
-
-const modalDiscountCheckbox = document.querySelector('.modal__checkbox-wrapper .modal__checkbox');
-const modalDiscountInputText = document.querySelector('.modal__checkbox-wrapper .modal__input_discount');
-const statusOverlay = document.querySelector('.overlay');
-const panelAddGood = document.querySelector('.panel__add-goods');
-const tableBody = document.querySelector('.table__body');
-const vendorCodeId = document.querySelector('.vendor-code__id');
-const cmsTotalPrice = document.querySelector('.cms__total-price');
+import {
+  modalDiscountCheckbox,
+  modalDiscountInputText,
+  statusOverlay,
+  panelAddGood,
+  tableBody,
+  vendorCodeId,
+  cmsTotalPrice,
+  modalForm,
+} from './elements.js';
 
 export const functionTotalPrice = (price, discont, count) => {
-  return price * (1 - discont * 0.01) * count;
+  return Math.round(price * (1 - discont * 0.01) * count * 100) / 100;
 };
 
 const closeModal = () => {
@@ -67,6 +69,11 @@ const modalOverlayControl = () => {
       getTotalPrice(getStorage('goods'));
       console.log(getStorage('goods'));
     };
+  });
+
+  modalForm.addEventListener('change', () => {
+    modalForm.total.value = `$ ${
+      functionTotalPrice(modalForm.price.value, modalForm.discount_count.value, modalForm.count.value)}`;
   });
 }; 
 

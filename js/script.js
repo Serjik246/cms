@@ -8,6 +8,7 @@ const {
   getTotalPrice,
   modalOverlayControl,
   formControl,
+  getBtnPic,
 } = control;
 
 const init = () => {
@@ -17,6 +18,7 @@ const init = () => {
   getTotalPrice(getStorage('goods'));
   modalOverlayControl();
   formControl(modalForm, 'goods');
+  getBtnPic();
 };
 
 init();

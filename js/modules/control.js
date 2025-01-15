@@ -97,9 +97,26 @@ const formControl = (form, arr) => {
   });
 };
 
+const getBtnPic = () => {
+  const form = document.querySelector('.table__body');
+  const centerWidth =  screen.width / 2 - 400;
+  const centerHeight = screen.height / 2 - 300;
+
+  form.addEventListener('click', e => {
+    const btnPic = e.target.closest('.table__btn_pic');
+    if (btnPic) {
+      const src = btnPic.getAttribute('data-pic');
+      const win = open(src, '', 'width=800,height=600');
+      win.moveTo(centerWidth, centerHeight);
+    };    
+  });
+};
+
+
 export default {
   closeModal,
   getTotalPrice,
   modalOverlayControl,
   formControl,
+  getBtnPic,
 };

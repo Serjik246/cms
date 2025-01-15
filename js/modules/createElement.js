@@ -40,6 +40,8 @@ export const createRow = (obj, i) => {
     return buttonTag;
   };
   const btnPic = getButton('table__btn_pic');
+  btnPic.setAttribute('data-pic',
+    'https://support.kickofflabs.com/wp-content/uploads/2016/06/800x600.png');
   const btnEdit = getButton('table__btn_edit');
   const btnDel = getButton('table__btn_del');
   button.className += ' table__cell_btn-wrapper';
